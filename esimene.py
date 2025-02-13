@@ -1,0 +1,2 @@
+def myFune():
+    print("Test")
