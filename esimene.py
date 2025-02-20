@@ -1,2 +1,2 @@
-def myFune():
+def myPykkar():
     print("Test")
