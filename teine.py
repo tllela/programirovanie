@@ -1,57 +1,35 @@
-from pykkar import *
-def myPykkar():
-    create_world("""
-    ########
-    #  >   #
-    #      #
-    #      #
-    #      #
-    #      #
-    ########
-    """)
-    for i in range(18):
-        if is_painted() == False:
-            if is_wall() == True:
-                right()
-            paint()
-            step()  
-    right()
-    step()
-    paint()
-    step()
-    paint()
-    step()
-    paint()
-    step()
-    paint()
+# murder_stats.py
 
-    right()
-    step()
-    paint()
-    right()
-    step()
-    paint()
-    step()
-    paint()
-    step()
-    paint()
-    
-    right()
-    step()
-    step()
-    paint()
-    step()
-    paint()
-    
-    right()
-    step()
-    paint()
-    step()
-    paint()
-    right()
-    step()
-    paint()
-    right()
-    step()
-    paint()
-    paint()
+class MurderStatsManager:
+    def __init__(self):
+        self.data = {}
+
+    def add_data(self, continent, country, city, count):
+        if continent not in self.data:
+            self.data[continent] = {}
+        if country not in self.data[continent]:
+            self.data[continent][country] = {}
+        self.data[continent][country][city] = count
+
+    def get_stats(self):
+        return self.data
+
+if __name__ == "__main__":
+    manager = MurderStatsManager()
+    manager.add_data("Europe", "Estonia", "Tallinn", 5)
+    manager.add_data("Europe", "Finland", "Helsinki", 3)
+    manager.add_data("Asia", "Japan", "Tokyo", 8)
+
+    print(manager.get_stats())
+
+
+{
+    'Europe': {
+        'Estonia': {'Tallinn': 5},
+        'Finland': {'Helsinki': 3}
+    },
+    'Asia': {
+        'Japan': {'Tokyo': 8}
+    }
+}
+
